@@ -1,0 +1,8 @@
+run:
+- laravel new login --auth
+- composer require laravel/ui
+- php artisan ui vue --auth
+- npm install && npm run dev : for window = ['npm install', 'npm run dev']
+- mysql -uroot -p -e "CREATE DATABASE laravel_users_role"
+- php artisan migrate || php artisan migrate:install
+- php artisan serve
