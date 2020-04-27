@@ -8,5 +8,8 @@ run:
 - php artisan serve
 
 Admin controllers
-- php artisan make:controller \\Admin\\UsersController -r -mUser
-*r resource, -m model, \\dir
+    1 - php artisan make:controller \\Admin\\UsersController -r -mUser
+        *r resource, -m model, \\dir
+    2 - create route: web.php
+        + Route::resource('/admin/users', 'Admin\UsersController', ['except' => ['show', 'create', 'store']]);
+        + php artisan route:list : for checking route url list.
