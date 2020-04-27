@@ -1,4 +1,4 @@
-run:
+Run:
 - laravel new login --auth
 - composer require laravel/ui
 - php artisan ui vue --auth
@@ -7,6 +7,8 @@ run:
 - php artisan migrate || php artisan migrate:install
 - php artisan serve
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 Admin controllers
     1 - php artisan make:controller \\Admin\\UsersController -r -mUser
         *r resource, -m model, \\dir
@@ -14,4 +16,43 @@ Admin controllers
         + Route::resource('/admin/users', 'Admin\UsersController', ['except' => ['show', 'create', 'store']]);
         + php artisan route:list : for checking route url list.
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 Create Laravel user/role relationships
+- php artisan make:model Role -m
+- add $table->string('name'); in the role of migrations file.
+- php artisan make:migration create_role_user_table
+    ****CreateRoleUserTable
+        $table->integer('role_id')->unsigned();
+        $table->integer('user_id')->unsigned();
+    ****
+- php artisan migrate
+- create relationship:
+    ****Role
+        class Role extends Model
+        {
+            public function users(){
+                return $this->belongsToMany('App\User');
+            }
+        }
+     ****User
+     class User extends Authenticatable
+     {
+        public function roles(){
+             return $this->belongsToMany('App\Role');
+         }
+     }
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Create fake data by using Seeder
+- php artisan make:seed RolesTableSeeder
+- php artisan make:seed UsersTableSeeder
+- getting role model by: use App\Role; in RoleTableSeeder
+- php artisan migrate
+- php artisan db:seed
+
+
+
+***Note:
+-m: make migration
