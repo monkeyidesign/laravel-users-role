@@ -13,3 +13,5 @@ Admin controllers
     2 - create route: web.php
         + Route::resource('/admin/users', 'Admin\UsersController', ['except' => ['show', 'create', 'store']]);
         + php artisan route:list : for checking route url list.
+
+Create Laravel user/role relationships
