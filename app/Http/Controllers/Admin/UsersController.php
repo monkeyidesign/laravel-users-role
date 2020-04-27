@@ -16,6 +16,7 @@ class UsersController extends Controller
     public function index()
     {
         //
+        return "users index page";
     }
 
 //    /**
@@ -59,6 +60,7 @@ class UsersController extends Controller
     public function edit(User $user)
     {
         //
+
     }
 
     /**
