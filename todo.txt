@@ -6,3 +6,7 @@ run:
 - mysql -uroot -p -e "CREATE DATABASE laravel_users_role"
 - php artisan migrate || php artisan migrate:install
 - php artisan serve
+
+Admin controllers
+- php artisan make:controller \\Admin\\UsersController -r -mUser
+*r resource, -m model, \\dir
