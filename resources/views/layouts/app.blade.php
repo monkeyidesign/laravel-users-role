@@ -78,6 +78,9 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
+                <div class="text-center">@include('libs.msg-info')</div>
+            </div>
             @yield('content')
         </main>
     </div>

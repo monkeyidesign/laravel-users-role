@@ -94,7 +94,12 @@ class UsersController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->save();
+
+        if($user->save()){
+            $request->session()->flash('success', $user->name . 'User has been updated');
+        }else{
+            $request->session()->flash('error', 'There was an error updating the user');
+        }
 
         return redirect()->route('admin.users.index');
     }
@@ -105,14 +110,17 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $user, Request $request)
     {
         //dd($user);
         if(Gate::denies('delete-users')){
             return redirect(route('admin.users.index'));
         }
         $user->roles()->detach();
-        $user->delete();
+        if($user->delete()){
+            $request->session()->flash('success', $user->name . ' User has been updated');
+        }
+
 
         return redirect()->route('admin.users.index');
     }
