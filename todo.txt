@@ -52,6 +52,19 @@ Create fake data by using Seeder
 - php artisan migrate
 - php artisan db:seed
 
+Assign roles to users
+- php artisan route:list
+- add id to view by using route:
+        <a href="{{ route('admin.users.edit', $user->id) }}">
+              <button type="button" class="btn btn-warning">Edit</button>
+          </a>
+          <a href="{{ route('admin.users.destroy', $user->id) }}">
+              <button type="button" class="btn btn-danger">Delete</button>
+          </a>
+- use App\Role; in the UsersController
+
+
+
 
 
 ***Note:

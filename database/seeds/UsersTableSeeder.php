@@ -16,38 +16,38 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        User::truncate();
-        DB::table('role_user')->truncate();
-
-        $rootRole = Role::where('name', 'root')->first();
-        $adminRole = Role::where('name', 'admin')->first();
-        $authorRole = Role::where('name', 'author')->first();
-        $userRole = Role::where('name', 'user')->first();
-
-        $root = User::create([
-            'name' => 'Supper User',
-            'email' => 'Supper@Supper.com',
-            'password' => Hash::make('123')
-        ]);
-        $admin = User::create([
-            'name' => 'Admin User',
-            'email' => 'Admin@Admin.com',
-            'password' => Hash::make('123')
-        ]);
-        $author = User::create([
-            'name' => 'Author User',
-            'email' => 'author@author.com',
-            'password' => Hash::make('123')
-        ]);
-        $user = User::create([
-            'name' => 'Generic User',
-            'email' => 'Generic@user.com',
-            'password' => Hash::make('123')
-        ]);
-
-        $root->roles()->attach($rootRole);
-        $admin->roles()->attach($adminRole);
-        $author->roles()->attach($authorRole);
-        $user->roles()->attach($userRole);
+//        User::truncate();
+//        DB::table('role_user')->truncate();
+//
+//        $rootRole = Role::where('name', 'root')->first();
+//        $adminRole = Role::where('name', 'admin')->first();
+//        $authorRole = Role::where('name', 'author')->first();
+//        $userRole = Role::where('name', 'user')->first();
+//
+//        $root = User::create([
+//            'name' => 'Supper User',
+//            'email' => 'Supper@Supper.com',
+//            'password' => Hash::make('123')
+//        ]);
+//        $admin = User::create([
+//            'name' => 'Admin User',
+//            'email' => 'Admin@Admin.com',
+//            'password' => Hash::make('123')
+//        ]);
+//        $author = User::create([
+//            'name' => 'Author User',
+//            'email' => 'author@author.com',
+//            'password' => Hash::make('123')
+//        ]);
+//        $user = User::create([
+//            'name' => 'Generic User',
+//            'email' => 'Generic@user.com',
+//            'password' => Hash::make('123')
+//        ]);
+//
+//        $root->roles()->attach($rootRole);
+//        $admin->roles()->attach($adminRole);
+//        $author->roles()->attach($authorRole);
+//        $user->roles()->attach($userRole);
     }
 }
